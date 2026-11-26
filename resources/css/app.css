@@ -1,0 +1,122 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+html {
+    color-scheme: light;
+}
+
+html.dark {
+    color-scheme: dark;
+}
+
+html.dark body,
+html.dark .bg-slate-100 {
+    background-color: #0f172a;
+}
+
+html.dark body,
+html.dark .text-slate-900 {
+    color: #e2e8f0;
+}
+
+html.dark .bg-white {
+    background-color: #1e293b;
+}
+
+html.dark .bg-slate-50 {
+    background-color: #334155;
+}
+
+html.dark .bg-blue-50 {
+    background-color: #1e3a5f;
+}
+
+html.dark .text-slate-700,
+html.dark .text-slate-600 {
+    color: #cbd5e1;
+}
+
+html.dark .text-blue-700 {
+    color: #bfdbfe;
+}
+
+html.dark .text-slate-500 {
+    color: #94a3b8;
+}
+
+html.dark .border,
+html.dark .border-slate-200,
+html.dark .border-t {
+    border-color: #475569;
+}
+
+html.dark .divide-y > :not(:last-child) {
+    border-color: #475569;
+}
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+    border-color: #475569;
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+html.dark input::placeholder {
+    color: #94a3b8;
+}
+
+.data-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.data-table :is(th, td) {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    vertical-align: top;
+}
+
+html.dark .bg-emerald-100 {
+    background-color: #064e3b;
+    color: #d1fae5;
+}
+
+html.dark .bg-red-100 {
+    background-color: #7f1d1d;
+    color: #fee2e2;
+}
+
+html.dark .bg-purple-50 {
+    background-color: #3b0764;
+}
+
+html.dark .bg-purple-100 {
+    background-color: #4c1d95;
+    color: #e9d5ff;
+}
+
+html.dark .bg-blue-100 {
+    background-color: #1e3a5f;
+    color: #bfdbfe;
+}
+
+html.dark .hover\:bg-slate-100:hover {
+    background-color: #334155;
+}
+
+html.dark .bg-blue-600 {
+    background-color: #3b82f6;
+}
+
+html.dark .hover\:bg-blue-700:hover {
+    background-color: #2563eb;
+}
+
