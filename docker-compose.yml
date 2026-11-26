@@ -1,0 +1,38 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: laptop_market
+      POSTGRES_USER: laptop_market
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U laptop_market -d laptop_market"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  app:
+    build: .
+    working_dir: /app
+    command: sh -c "php artisan config:clear && php artisan migrate --force && cd public && php -S 0.0.0.0:8000 /app/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php"
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+    ports:
+      - "8080:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "php artisan migrate:status --no-ansi >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 30s
+volumes:
+  postgres-data:
